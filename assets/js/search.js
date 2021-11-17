@@ -1,44 +1,48 @@
-$(document).ready(function() {
-    'use strict';
-    var search_field = $('.search-form__field'),
-        search_results = $('.search-results'),
-        toggle_search = $('.toggle-search-button'),
-        close_search = $('.close-search-button'),
-        search_result_template = "\
-          <div class='search-results__item'>\
-            <a class='search-results__item__title' href='{{link}}'>{{title}}</a>\
-            <span class='post__date'>{{pubDate}}</span>\
-          </div>";
+---
+---
 
-    toggle_search.click(function(event) {
-      event.preventDefault();
-      $('.search-form-container').addClass('is-active');
+window.onload = function () {
+    var $searchbar = document.getElementById('searchbar');
+    var $searchResults = document.getElementById('search-results');
 
-      setTimeout(function() {
-        search_field.focus();
-      }, 500);
+    if (!$searchbar || !$searchResults)
+        return;
+
+    SimpleJekyllSearch({
+        searchInput: $searchbar,
+        resultsContainer: $searchResults,
+        json: '{{ "/search.json" | relative_url }}',
+        searchResultTemplate: '<a href="{url}" target="_blank">{title}</a>',
+        noResultsText: ''
     });
 
-    $('.search-form-container').on('keyup', function(event) {
-      if (event.keyCode == 27) {
-        $('.search-form-container').removeClass('is-active');
-      }
+    /* hack ios safari unfocus */
+    if (/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent))
+        document.body.firstElementChild.tabIndex = 1;
+
+    var $labelGroup = document.querySelector(".posts-labelgroup");
+    var $postLabel = document.getElementById("posts-label");
+    var labelWidth = $postLabel.scrollWidth;
+
+    $postLabel.style.width = labelWidth + "px";
+
+    $labelGroup.addEventListener("click", function (e) {
+        $searchResults.style.display = null;
+        $postLabel.style.width = "0";
+        $labelGroup.setAttribute("class", "posts-labelgroup focus-within");
+        $searchbar.focus();
+        e.stopPropagation();
+    }, false);
+
+    $labelGroup.addEventListener("mouseleave", function () {
+        document.body.onclick = searchCollapse;
     });
 
-    $('.close-search-button').click(function() {
-      $('.search-form-container').removeClass('is-active');
-    });
+    var searchCollapse = function (e) {
+        $searchResults.style.display = "none";
+        $labelGroup.setAttribute("class", "posts-labelgroup");
+        $postLabel.style.width = labelWidth + "px";
+        document.body.onclick = null;
+    };
+}
 
-    search_field.ghostHunter({
-      results: search_results,
-      onKeyUp         : true,
-      rss             : base_url + '/feed.xml',
-      zeroResultsInfo : false,
-      info_template   : "<h4 class='heading'>Number of posts found: {{amount}}</h4>",
-      result_template : search_result_template,
-      before: function() {
-        search_results.fadeIn();
-      }
-    });
-
-  });
