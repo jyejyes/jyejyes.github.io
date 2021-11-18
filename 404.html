@@ -1,23 +1,34 @@
 ---
-layout: page
-title: 404
-sitemap:
-  exclude: 'yes'
-published: true
+title: Page Not Found
 ---
-<div class="page">
-
-    <h2 class="go-home">
-    Error 404
-    </h2>
-    <h3 class="go-home">
-      I'm not sure how you got here, but you should head <a href="/">home</a>.
-    </h3>
-
-</div>
-
-
-<!-- Adding the glitch effect -->
-<script>
-    document.getElementsByTagName('body')[0].classList.add('glitch');
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%- include head.html -%}
+	<style>
+	h2 {
+		font-feature-settings: "lnum";
+		background-color: #ddd;
+		width: 140px;
+		height: 140px;
+		border-radius: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center
+	}
+	body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-size: 20px;
+		height: 80vh;
+	}
+	p {text-align: center; line-height: 2em;}
+	</style>
+</head>
+<body>
+	<h2>404</h2>
+	<p>Page not found.</p>
+</body>
+</html>
