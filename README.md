@@ -1,222 +1,139 @@
-# plainwhite
+# dactl
+dactl is a fast, modern and configurable [Jekyll](http://jekyllrb.com/) theme with some tricks up it's sleeve. It has a live theme switcher and it's main blog layout display prominent hero images for posts with colored overlays and nice animations.
 
-Simplistic jekyll portfolio-style theme for writers.
+![light theme](uploads/screenshot_desktop_light.jpg)
+![dark theme](uploads/screenshot_desktop_dark.jpg)
 
-**Demo**: [samarsault.com](https://samarsault.com)
+## Features
+Though minimalistic-looking by nature, dactl is easily configurable and includes quite a lot of niceties:
 
-![plainwhite theme preview](/screenshot.png)
+Main features:
+* Customizable blog layout - choose how your posts will be displayed
+* Light/Dark live theme switcher
+* Inline footnotes using [Barefoot](https://github.com/philgruneich/barefoot)
+* [IcoMoon](https://icomoon.io/) custom icon set (~4kb)
+* Typography and components size set in `rem` and `em` which makes them easily scalable
+* Responsive design
 
-## Installation on Github Pages
+Jekyll-specific features:
+* Pagination (default: 5 posts per page)
+* Fully compatible with Jekyll 3.x and GitHub Pages
+* SEO optimized
+* [Google Analytics](https://www.google.com/analytics/) support
+* [Disqus](https://disqus.com/) comments support
+* Syntax highlighter using [Rouge](https://github.com/jneen/rouge) with numbered code lines
 
-Add this line to your site's `_config.yml`:
+Other features:
+* Archive page
+* About page
+* Tags functionality and tags pages
+* Link posts functionality
 
-```yaml
-remote_theme: samarsault/plainwhite-jekyll
-```
+Some of the features listed above can be easily configured or disabled by you.
+
+## Information about dactl
+At it's core, dactl is a forked version of [daktilo](https://github.com/kronik3r/daktilo) but it has been almost entirely rewritten from scratch.  
+I have just started my journey in the world of web development, learning new things on the way.  
+Looking for a way to put my newly acquired skills to test I found Jekyll and I quickly realized that it's going to be a good learning experience since I don't like building 'dummy' projects.  
+I've built this theme as a way to develop my skills further.
+
+You can find credits at the bottom of this Readme file.  
+**All** feedback is welcome, both positive and negative.
 
 ## Installation
+### Running locally
+Assuming you've got Jekyll [installed](https://jekyllrb.com/docs/installation/), clone or download this repo, `cd` to wherever you've put `dactl` folder and run `jekyll -s'`
 
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
-gem "plainwhite"
-```
-
-And add this line to your Jekyll site's `_config.yml`:
-
-```yaml
-theme: plainwhite
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install plainwhite
+### Hosting on GitHub
+Fork this repo and rename it to `yourusername.github.io`... and that's it!  
+Your new dactl-themed Jekyll blog should be up and running at yourusername.github.io.  
 
 ## Usage
+### Slight warning
+dactl relies heavily on modern CSS properties such as [mix-blend-mode](http://www.w3.org/TR/compositing-1/#mix-blend-mode), [-webkit-filter](http://www.w3.org/TR/filter-effects-1/) and [css variables](https://drafts.csswg.org/css-variables/) so it may not work properly on older browsers.  
+It was tested with and works fully on webkit-powered browsers - Safari, Chrome, Vivaldi.
 
-The "plainwhite" key in \_config.yml is used to customize the theme data.
+### Layout configurations
+By default dactl uses blog layout which you can see below or check for yourself in the live version.
 
-```yaml
-plainwhite:
-  name: Adam Denisov
-  tagline: Developer. Designer
-  date_format: "%b %-d, %Y"
+Main blog layout displays 5 posts. Each post has a heading contained in a medium-sized tile - with an color overlay over the background image. You need to set the image and color of the overlay in post's YAML front matter.
 
-  social_links:
-    twitter: samarsault
-    github: samarsault
-    linkedIn: in/samarsault # format: locale/username
-```
+If you don't want to use images for post headings you can easily configure the layout to you needs by changing settings located in `configure.yml` file, both post and blog layout will adapt accordingly.
 
-**Updating Placeholder Image**
+Options include:
+* Use or don't use post heading images (Blog & Post)
+* Show full post content or post excerpts (Blog)
+* Show post titles only (Blog)
 
-The placeholder portfolio image can be replaced by the desired image by placing it as `assets/portfolio.png` in your jekyll website, or by changing the following line in `_config.yaml`
+## Additional information about some features
+### Hero images and blog layout
+Liquid 'script' which is used to append correct hero image and overlay color as set in post YAML Front matter was written by me and while it's really basic it functions properly.  
+You can read more about it and see the code in `include/utils/hero.html`.
 
-```yaml
-plainwhite:
-  portfolio_image:  "assets/portfolio.png" # the path from the base directory of the site to the image to display (no / at the start)
-```
+### Theme switcher
+Theme switcher is made in vanilla Javascript and works using [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables). Values (colors) specified for each variable are injected into `:root` on every page load.  
+User theme choice is saved in browser's [Local Storage](https://www.w3schools.com/html/html5_webstorage.asp) and is persistent through sessions.
 
-To use a different image for dark mode, e.g. with different colors that work better in dark mode, add a `portfolio_image_dark` entry in addition to the `portfolio_image`.
+You can edit the colors of both Light and Dark themes in `themeswitcher.js` file found in `_assets/js/`.
 
-```yaml
-plainwhite:
-  portfolio_image:      "assets/portfolio.png"
-  portfolio_image_dark: "assets/portfolio_dark.png"
-```
+### Inline Barefoot footnotes
+dactl uses [Barefoot](https://github.com/philgruneich/barefoot) plugin to create nice looking inline footnotes from those generated by [kramdown](https://kramdown.gettalong.org/), daktl's markdown processor.
 
-**Comments (Disqus)**
+Barefoot description (from project's page):
+>[Barefoot](https://github.com/philgruneich/barefoot) is a lightweight [Bigfoot.js](https://github.com/lemonmade/bigfoot) alternative written in vanilla Javascript to create beautiful inline footnotes.  
+Barefoot grabs the common markup used for footnotes on the web, mostly generated by Markdown processors, and transform it into beautiful and meaningful footnotes.
 
-Comments on posts can be enabled by specifying your disqus_shortname under plainwhite in `_config.yml`. For example,
+### CSS
+CSS is built by via Jekyll's SASS compiler. Source partial SASS files are located in `_sass` folder, included into `main.scss`, and compile to `main.css`.
 
-```yaml
-plainwhite:
-  disqus_shortname: games
-```
+### Additional pages
+#### Archive page
+Archive page displays all of your posts grouped by month. Under this page's title you'll find a Searchbox which is hooked up to DuckDuckGo's `:site` search and will open the results in a new tab.  
+You need to provide your blog's web address in `search_path` field found in `_config.yml` for it to work.
+#### About page
+About page displays your photo under the title (set in `config.yml`) and the content of about.md.
+#### Tags & Tags Pages
+Tags and tag pages are supported by using Jekyll's native collections functionality.  
 
-**Google Analytics**
+## Even more info
+### Rems, font-size and scaling
+dactl is built almost entirely with `rem`s (instead of pixels). `rem`s are like `em`s, but instead of building on the immediate parent's font-size, they build on the root element, `<html>`.
 
-It can be enabled by specifying your analytics id under plainwhite in `_config.yml`
+By default, dactl uses the following:
+~~~
+html {
+  font-size: 20px;
+  line-height: 1.6;
+}
+@media (max-width: 48rem) {
+  html {
+    font-size: 18px;
+  }
+}
+~~~
+To easily scale your site's typography and components, simply customize the base font-sizes found in `_sass/variables.scss` file.
 
-```yaml
-plainwhite:
-  analytics_id: "< YOUR ID >"
-```
+(Lifted from [here](https://github.com/poole/poole#rems-font-size-and-scaling))
 
-**Sitemap**
+## Credits
+### Resources used
+- [IcoMoon.io](https://icomoon.io/)
+- [Normalize.css](https://github.com/necolas/normalize.css) - Nicolas Gallagher
+- [Theme switcher](https://www.fdp.io/blog/2016/11/08/theming-via-css-properties/) - Fernando Paredes
+- [Barefoot](https://github.com/philgruneich/barefoot) - Philip Gruneich
+- [The Noun Project](https://thenounproject.com/) - Icon used as dactl's logo - [Artem Kovyazin](https://thenounproject.com/term/raisin/446158), icon used as 'avatar' in About [Drishya](https://thenounproject.com/term/profile/963272)
 
-It can be toggled by the following line to under plainwhite in `_config.yml`
-
-```yaml
-plainwhite:
-  sitemap: true
-```
-
-**Excerpts**
-
-Excerpts can be enabled by adding the following line to your `_config.yml`
-
-```yaml
-show_excerpts: true
-```
-
-**Layouts**
-
-- Home
-- Page
-- Post
-
-**Navigation**
-
-Navigation can be enabled by adding the following line to your `_config.yml`
-
-```yaml
-plainwhite:
-  navigation:
-    - title: My Work
-      url: "/my-work"
-    - title: Resume
-      url: "/resume"
-```
-
-**Mobile**
-
-By default, Plainwhite places the sidebar (logo, name, tagline etc.) above the content on mobile (narrow screens).
-To condense it (moving some things to the bottom of the page and making the rest smaller) so it takes up less space, add the following to your `_config.yml`:
-
-```yaml
-plainwhite:
-  condensed_mobile:
-    - home
-    - post
-    - page
-```
-
-This chooses which layouts (types of page) should be condensed on mobile screens. E.g. if you want everything but the landing page to be condensed, remove `home` from the list. This option does not affect rendering on wider screens.
-
-**Dark mode**
-
-Dark mode can be enabled by setting the `dark_mode` flag in your `_config.yml`
-
-The website will check the OS preferred color scheme and set the theme accordingly, the preference will then be saved in a cookie
-
-```yaml
-plainwhite:
-  dark_mode: true
-```
-
-![plainwhite dark theme previe](/dark.png)
-
-**Multiline tagline**
-
-Tagline can be multiline in this way
-
-```yaml
-plainwhite:
-  tagline: |
-  First Line. 
-
-  Second Line. 
-
-  Third Line.
-```
-
-**Search-bar**
-
-Search-bar can be enabled by adding the following line to `config.yml`
-
-```yaml
-plainwhite:
-  search: true
-```
-
-Search is powered by [Simple-Jekyll-Search](https://github.com/christian-fei/Simple-Jekyll-Search) Jekyll plugin. A `search.json` containing post meta and contents will be generated in site root folder. Plugin JavaScript will then match for posts based on user input. More info and `search.json` customization documentation can be found in plugin repository.
-
-**Base URL**
-
-You can specify a custom base URL (eg. example.com/blog/) by adding the following line to `_config.yaml`. Note that there is no trailing slash on the URL.
-
-```yaml
-baseurl: "/blog"
-```
-
-**Language**
-
-You can set the `lang` attribute of the `<html>` tag on your pages by changing the following line in `_config.yml`:
-
-```yaml
-plainwhite:
-  html_lang: "en"
-```
-
-[See here for a full list of available language codes](https://www.w3schools.com/tags/ref_country_codes.asp)
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/samarsault/plainwhite-jekyll. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `plainwhite.gemspec` accordingly.
-
-## Donation
-If this project help you reduce time to develop, you can give me a cup of coffee :) 
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/thelehhman)
+### Inspiration and thoughtful code-jacking
+Inspiration and bits of things listed below are present inside dactl's code:
+- [Daktilo](https://github.com/kronik3r/daktilo) - dactl is based on Daktilo and inherits it's one-column layout.
+- [Hydejack](https://github.com/qwtel/hydejack/) - I've learned a lot about Jekyll when I took apart [@qwtel](https://github.com/qwtel/)'s excellent fork of [Hyde](https://github.com/poole/hyde) theme. I embraced his more partials = everything is easier to edit policy. Hydejack theme gave me an idea on how to create hero images liquid scripting, loading google fonts and using rem's/em's and more.
+- [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) - This guy makes awesome themes and writes a lot about Jekyll and it's more obscure use cases on his blog, [Made Mistakes](https://mademistakes.com). Looking through his theme's code - Minimal Mistakes in particular - gave me lot of information about how to build a robust theme and how to make it configurable within `_config.yml`
+- [Trophy](https://github.com/thomasvaeth/trophy-jekyll) - Link border slide animation SASS mixin which I slightly modified to be able to easily change the direction of the animation.
+- Various blog posts about Jekyll and [Stackoverflow](https://www.stackoverflow.com) posts with useful [Liquid](https://github.com/Shopify/liquid) snippets.
 
 ## License
+All parts of dactl Jekyll theme are free to use and abuse under the open-source [MIT license](http://opensource.org/licenses/mit-license.php).
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## More themes
-
-- [Texture](https://github.com/samarsault/texture)
+## TO DO
+- [ ] Inline critical `.css` in `<head>` for faster load times
+- [ ] Fix theme-switcher - sometimes it does not inject all of the colors properly on first page load and a refresh, fixes itself after switching the theme back and forth.
