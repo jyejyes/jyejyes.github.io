@@ -2,7 +2,7 @@ title: zeri's achive
 author: GitHub User me
 email: jh100m1@gmail.com
 description: > # this means to ignore newlines until "show_exerpts:"
-  For my development and future, for the success of my sisters. 
+  공유와 기록을 위한 아카이브
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Minima date format
@@ -11,7 +11,7 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: Park Jihye
-  tagline: For my development and future, for the success of my sisters.
+  tagline: I want to be a developer
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar
