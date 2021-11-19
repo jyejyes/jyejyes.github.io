@@ -1,0 +1,73 @@
+---
+layout: post
+title: "HTML 공부 - tag"
+date: 2021-11-18 
+categories: web html tag
+---
+
+**생활코딩 html + css + 자바 스크립트** 책으로 웹페이지 만들기
+
+---
+
+# HTML
+[html이란? 안눌러봐도 된다](https://developer.mozilla.org/ko/docs/Web/HTML "별 의미는 없다 링크 넣기 연습하려고 넣어봄")
+
+## 태그
+### 1. **강조**와 <u>underline</u> : \<strong>과 \<u>
+
+```html
+If you have <strong>really <u>important things</u> you wanna explain</strong>, you can highlight like this.
+```
+이렇게 작성한다면
+
+>If you have <strong>really <u>important things</u> you wanna explain</strong>, you can highlight like this.
+
+이와 같이 나온다. ~~엇? 이 와중에 안 사실 마크다운 언어에 html 문법을 그래도 사용해도 똑같이 적용된다~~  
+\+ 명령어를 사용했는데 그대로 출력해주기 위해서는 \ 문자를 앞에 넣어주면 됨.  
+
+### 3. Definition and Usage(제목) : \<h1,h2...>제목\</h1,/h2...> 
+마크다운 언어에서 \## 와 동일한 역할을 하는 태그  
+```html
+<h1>this is 제목</h1>
+<h2>this is 제목</h2>
+<h3>this is 제목</h3>
+<h4>this is 제목</h4>
+<h5>this is 제목</h5>
+<h6>this is 제목</h6> //까지만 존재함
+```
+><h1>this is 제목</h1>
+><h2>this is 제목</h2>
+><h3>this is 제목</h3>
+><h4>this is 제목</h4>
+><h5>this is 제목</h5>
+><h6>this is 제목</h6>  
+
+
+
+### 4. 줄바꿈 \<br>과 \<p> 내용 \</p>
+\<br>태그는 앞서 나왔던 태그들과 달리 줄바꿈만을 표현하는 것이기 때문에 닫는 태그가 따로 필요하지 않다. 그러나 \<p> 내용 \</p> 같은 경우는 단위가 단락이기 때문에 단락의 처음과 끝을 표현할 수 있어 열린태그, 딛힌 태그가 모두 존재한다.
+
+```html
+hi<br>my name is<br>zeri<br><br>I love you
+```
+>hi<br>my name is<br>zeri<br><br>I love you
+<br>
+
+```html
+<p>I originally published this recipe in 2012 at our very first Friendsgiving we shared on this blog. This is still the go-to green bean casserole I make again and again.</p> <p style="margin-top:40px">Although it’s maybe a little different from some versions, it’s a classic. For this reason, I wanted to update this post (we didn’t even have printable recipe cards back in 2012) and republish it for you all if you need a green bean casserole recipe for this holiday season.</p>
+```
+><p>I originally published this recipe in 2012 at our very first Friendsgiving we shared on this blog. This is still the go-to green bean casserole I make again and again.</p> <p style="margin-top:40px">Although it’s maybe a little different from some versions, it’s a classic. For this reason, I wanted to update this post (we didn’t even have printable recipe cards back in 2012) and republish it for you all if you need a green bean casserole recipe for this holiday season.</p>
+
+두번째 p 태그에 css 문법을 사용함. style="margin-top:40px", style="font-size:22px"와 같은 css 문법으로 정교하게 제어가 가능하다.
+
+### 5. 속성 : 태그의 심화된 문법 : \<img> 태그
+```html
+<img src="coding.jpg width="100%">
+```
+<img src="coding.jpg"> // 안나오네 html에서는 나옴.. 마크다운으로 비슷하게 보여주자면
+![coding](https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1738&q=80)
+
+속성에 대해 알아보자. 위처럼 *width="100%", src="coding.jpg"* 와 같은 부분을 속성(Attribute)라고 한다. 속성의 위치는 상관없으며 태그만으로 정보가 부족할 때, 더 많은 의미를 부여하고 세밀하게 표현하기 위해 사용된다.  
+<br><br>1일차. 밤에 시작해서 오늘의 html 공부는 여기까지 내일 더 많은 시간을 할애해서 공부할 것!
+
+---
