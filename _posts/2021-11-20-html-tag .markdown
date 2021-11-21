@@ -1,0 +1,152 @@
+---
+layout: post
+title: "HTML 공부 2 - tag"
+date: 2021-11-20
+categories: web html tag
+---
+
+**생활코딩 html + css + 자바 스크립트** 책으로 웹페이지 만들기 2
+
+---
+
+# HTML
+[html이란? 안눌러봐도 된다](https://developer.mozilla.org/ko/docs/Web/HTML "별 의미는 없다 링크 넣기 연습하려고 넣어봄")
+
+전 게시글과 이어서 ...
+<br><br>
+
+### 6. 목차 완성하기 : list \<li>
+```html
+<parent>
+    <child></child>
+<parent>
+```
+위와 같은 형식으로 포함관계에 있는 태그들이 있다. html에 있는 여러 태그는 부모자식관계가 바뀌기도 하지만, 붙어다니는 태그들도 있다.  ex.list
+<br>
+```html
+<ul>
+    <li>1. html</li>
+    <li>2. css</li>
+    <li>3.javascript</li>
+</ul>
+<ul>
+    <li>park</li>
+    <li>jihye</li>
+    <li>jjang</li>
+</ul>
+```
+<ul>
+    <li>1. html</li>
+    <li>2. css</li>
+    <li>3.javascript</li>
+</ul>
+<ul>
+    <li>park</li>
+    <li>jihye</li>
+    <li>jjang</li>
+</ul>
+
+\<li> ~ \</li> : list , 목차를 표시하는 태그
+\<ul> ~ \</ul> : li 의 상위태그로, 연관된 목차끼리 묶는 역할을 한다. = **u**nordered **l**ist
+극단적으로 생각하기 : 만약 태그가 1억개이다. 이 때 첫번째 태그를 삭제한다면 1억개의 숫자를 변경해주어야한다. 숫자를 자동으로 넣게 하고싶다면? \<ol>를 사용하자. = **o**rdered **l**ist
+
+```html
+<ol>
+    <li>html</li>
+    <li>css</li>
+    <li>javascript</li>
+</ol>
+<ol>
+    <li>park</li>
+    <li>jihye</li>
+    <li>jjang</li>
+    <li>girl</li>
+</ol>
+```
+<ol>
+    <li>html</li>
+    <li>css</li>
+    <li>javascript</li>
+</ol>
+<ol>
+    <li>park</li>
+    <li>jihye</li>
+    <li>jjang</li>
+    <li>girl</li>
+</ol>  
+상위태그로 ol 을 사용하면 자동으로 숫자가 매겨진다.  <br>
+<br>
+
+### 7. 테이블
+```html
+<table>
+    <tr>
+        <td>최고</td>
+        <td>best</td>
+    </tr>
+    <tr>
+        <td>안녕</td>
+        <td>hello</td>
+    </tr>
+    <tr>
+        <td>멈춰!</td>
+        <td>stop!</td>
+    <tr>
+</table>
+```   
+
+<table>
+    <tr>
+        <td>최고</td>
+        <td>best</td>
+    </tr>
+    <tr>
+        <td>안녕</td>
+        <td>hello</td>
+    </tr>
+    <tr>
+        <td>멈춰!</td>
+        <td>stop!</td>
+    <tr>
+</table>  
+
+### 8. 웹페이지 제목 정하기 : \<title>  
+
+```html
+\<title>this is title\</title>
+```
+웹페이지의 제목이 된다. 영어로 쓰면 문제가 되지 않지만 한국어로 쓰면 꺠져서 나온다. UTF-8 방식으로 저장되어있기 때문에 파일을 웹 브라우저로 열 때도 같은 형식으로 열어줘야하기 때문이다.  
+이를 위해 \<meta charset="utf-8"> 을 사용해준다.  
+<br>
+### 8. \<head> & \<body> & \<html> & \<!DOCTYPE HTML>
+title , meta 등 제목을 설명하는 부분을 묶는 태그는 head  
+본문을 설명하는 태그는 body  
+head 와 body 를 묶는 태그는 html
+
+```html
+<!DOCTYLE HTML>
+<html>
+    <head>
+        <title>제목</title>
+        <mata charset="utf-8">
+    </head>
+    <body>
+        본문
+    </body>
+</html>
+```
+<br>
+
+### 9. 링크 걸기 : <a href=>
+markdown 언어에서는 \[설명]\(링크 "커서 길게 댔을 때 나오는 문구")로 사용함  
+html 의 경우 
+```html
+<a href="http://naver.com"> naver</a>
+<a href="http://naver.com" target="_blank">naver new tab</a>
+<a href="http://naver.com" target="_blank" title="링크에 커서를 길게 누르면 네이버라는 걸 알 수 있죠">
+```
+<a href="http://naver.com"> naver</a>    
+<a href="http://naver.com" target="_blank">naver new tab</a>    
+<a href="http://naver.com" target="_blank" title="링크에 커서를 대고 있으면 네이버라는 걸 알 수 있죠">naver new tab and stay long here</a>   
+
+target = "_blank" 를 링크 뒤에 추가해주면 새로운 탭으로 열 수 있다. 차이를 보자
