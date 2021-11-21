@@ -107,8 +107,8 @@ categories: web html tag
     <tr>
         <td>멈춰!</td>
         <td>stop!</td>
-    <tr>
-</table>  
+    </tr>
+</table>
 
 ### 8. 웹페이지 제목 정하기 : \<title>  
 
@@ -149,4 +149,5 @@ html 의 경우
 <a href="http://naver.com" target="_blank">naver new tab</a>    
 <a href="http://naver.com" target="_blank" title="링크에 커서를 대고 있으면 네이버라는 걸 알 수 있죠">naver new tab and stay long here</a>   
 
-target = "_blank" 를 링크 뒤에 추가해주면 새로운 탭으로 열 수 있다. 차이를 보자
+target = "_blank" 를 링크 뒤에 추가해주면 새로운 탭으로 열 수 있다. 차이를 보자.  
+그 뒤에 title=" "을 추가해주면 커서를 올려놨을 때 설명을 추가할 수 있다.  
