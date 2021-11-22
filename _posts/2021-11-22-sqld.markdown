@@ -1,0 +1,26 @@
+---
+layout: post
+title: SQLD 합격후기 및 공부방법과 자료
+date: 2021-11-22
+categories: 자격증 sqld
+---
+49회 SQLD 합격 ! 🥳  
+![합격](pictures/sqld-me.png)  
+시험정보 및 자세한 사항을 보고 싶다면 [여기-데이터자격검정](https://www.dataq.or.kr/www/sub/a_04.do)를 클릭하세요 !
+
+---
+
+## sqld 란?
+SQL(Structured Query Language)은 데이터베이스를 직접적으로 액세스할 수 있는 언어로, 데이터를 정의하고(Data Definition), 조작하며(Data Manipulation), 조작한 결과를 적용하거나 취소할 수 있고(Transaction Control), 접근권한을 제어하는(Data Control) 처리들로 구성된다.  
+
+<br>
+
+## 공부방법
+![사용한 책1](https://blog.kakaocdn.net/dn/xL4lC/btqVCb60RQQ/imSgqfYi4kYrRD8FivAGVk/img.png)
+![사용한 책2](https://image.aladin.co.kr/product/9761/28/cover500/8988474848_1.jpg)
+이 책으로 공부했다. sqld 시험문제는 문제은행식으로 과년도 기출을 포함한 5개년 이상의 기출문제를 푼다면 100% 합격보장..까진 아니지만 높은 확률로 합격할 수 있는 시험이다.  
+
+1. sqld 전문가 가이드  
+sqld 개념서이다. 이 한권이 있다면 sqld 뿐만 아니라 sqlp 시험도 같이 준비할 수 있다. sqld 시험의 기초가 되는 책으로 개념이 많이 잡혀있지 않거나, sql 을 약간 까먹은 전공자들이라면 추천.  
+책을 굳이 안사도 인터넷에 검색하면 pdf 파일이 많이 있기 때문에 아이패드와 같은 태블릿으로 공부하는 것을 추천한다. 물론 직접 제본이나 프린트를 해도 되지만 생각보다 양이 방대하여 힘들 듯 하다.
+
