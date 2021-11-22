@@ -4,7 +4,7 @@ title: "정보처리기사"
 date: 2021-11-18 
 categories: lisence 자격증
 ---
-![정처기](https://github.com/jyejyes/jyejyes.github.io/blob/main/_posts/pictures/jeonggisa.png?raw=true)
+![정처기](https://github.com/jyejyes/jyejyes.github.io/blob/main/_posts/pictures/jeonggisa.jpeg?raw=true)
 **2021년 정보처리기사 합격 ! 🥳**  
 전공자 기준으로 작성함. 시험일정 및 자세한 정보를 얻고싶다면 [큐넷홈페이지](https://www.q-net.or.kr/crf005.do?id=crf00505&jmCd=1320)에서 확인하세욜!
 
